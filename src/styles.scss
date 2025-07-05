@@ -1,0 +1,76 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: #f1f5f9;
+    color: #1e293b;
+}
+
+.app-layout {
+    .main {
+        display: flex;
+        height: calc(100vh - 64px);
+        transition: margin-left 0.3s ease-in-out;
+    }
+
+    .content {
+        flex: 1;
+        padding: 32px;
+        background-color: #f8fafc;
+        overflow-y: auto;
+        transition: margin-left 0.3s ease;
+    }
+
+    &.collapsed .sidebar {
+        width: 70px;
+        overflow: hidden;
+
+        ul li {
+            justify-content: center;
+        }
+
+        ul li span {
+            display: none;
+        }
+    }
+
+    &.collapsed .content {
+        margin-left: 70px;
+    }
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 200px;
+    }
+
+    .app-layout.collapsed .sidebar {
+        width: 0;
+    }
+
+    .app-layout.collapsed .content {
+        margin-left: 0;
+    }
+}
+
+:host ::ng-deep .router-outlet ~ * {
+    animation: fadeIn 0.4s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

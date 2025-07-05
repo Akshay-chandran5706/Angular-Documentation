@@ -1,0 +1,20 @@
+<nav class="sidebar">
+    <div class="sidebar-content">
+        <ul>
+            <ng-container *ngFor="let menu of menus">
+                <li (click)="toggleMenu(menu.key)" [class.open]="openMenus[menu.key]">
+                    <div style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+                        <span>{{ menu.label }}</span>
+                        <i class="fas expand-icon" [class.fa-plus]="!openMenus[menu.key]"
+                            [class.fa-minus]="openMenus[menu.key]"></i>
+                    </div>
+                </li>
+                <ul class="submenu" [class.open]="openMenus[menu.key]">
+                    <li *ngFor="let sub of menu.subItems" routerLink="{{ sub.route }}" routerLinkActive="active">
+                        {{ sub.label }}
+                    </li>
+                </ul>
+            </ng-container>
+        </ul>
+    </div>
+</nav>
