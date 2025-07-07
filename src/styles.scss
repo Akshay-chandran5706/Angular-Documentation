@@ -13,6 +13,23 @@ body {
     color: #1e293b;
 }
 
+body.sidebar-open {
+    overflow: hidden;
+}
+
+.mobile-overlay {
+    position: fixed;
+    top: 64px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 64px);
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(2px);
+    z-index: 1500;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
 .app-layout {
     .main {
         display: flex;
@@ -22,12 +39,12 @@ body {
 
     .sidebar {
         width: 260px;
-        transition: width 0.3s ease;
+        transition: all 0.3s ease;
     }
 
     .content {
         flex: 1;
-        padding: 32px;
+        padding: 15px;
         background-color: #f8fafc;
         overflow-y: auto;
         transition: margin-left 0.3s ease;
@@ -53,20 +70,58 @@ body {
     }
 }
 
-@media (max-width: 768px) {
-    .sidebar {
-        width: 200px;
-    }
+/* -------------------- Mobile (<768px) Overrides -------------------- */
+@media (max-width: 767px) {
+    .app-layout {
+        .main {
+            margin-left: 0;
+        }
 
-    .app-layout.collapsed .sidebar {
-        width: 0;
-    }
+        .sidebar {
+            position: fixed;
+            top: 64px;
+            left: 0;
+            width: 260px;
+            height: calc(100vh - 64px);
+            background-color: #1e293b;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+            z-index: 2000;
+            &.mobile-visible {
+                transform: translateX(0%);
+            }
+            &.mob-width {
+                transform: translateX(0%);
+                top: 0;
+            }
+        }
 
-    .app-layout.collapsed .content {
-        margin-left: 0;
+        &.collapsed .sidebar {
+            transform: translateX(0); // slide in
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 64px;
+            left: 0;
+            width: 100%;
+            height: calc(100vh - 64px);
+            background-color: rgba(0, 0, 0, 0.4);
+            z-index: 1500;
+        }
+
+        &.collapsed .overlay {
+            display: block;
+        }
+
+        .content {
+            padding: 16px;
+        }
     }
 }
 
+/* -------------------- Animations -------------------- */
 :host ::ng-deep .router-outlet ~ * {
     animation: fadeIn 0.4s ease-in;
 }
