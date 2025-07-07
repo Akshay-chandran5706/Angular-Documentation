@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { SIDEBAR_MENU } from './sidebar-menu';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -11,6 +11,7 @@ import { RouterModule } from '@angular/router';
 })
 export class SidebarComponent {
   menus = SIDEBAR_MENU;
+  @Input() isCollapsed = false;
 
   openMenus: { [key: string]: boolean } = {};
 

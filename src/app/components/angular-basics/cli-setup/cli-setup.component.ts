@@ -7,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrl: './cli-setup.component.scss'
 })
 export class CliSetupComponent {
+  copyCode() {
+    const code = document.getElementById('codeContent')?.textContent || '';
+    navigator.clipboard.writeText(code).then(() => {
+      alert('Copied to clipboard!');
+    });
+  }
 
 }

@@ -48,9 +48,28 @@
             cursor: pointer;
             transition: all 0.3s ease;
             color: #cbd5e1;
-            display: flex;
-            align-items: center;
             position: relative;
+
+            .menu-item {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                gap: 8px;
+            }
+
+            .menu-icon {
+                font-size: 16px;
+                width: 24px;
+                height: 24px;
+                background-color: #334155;
+                color: white;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 4px;
+                font-weight: bold;
+            }
 
             i {
                 margin-right: 12px;
@@ -107,6 +126,61 @@
 
             &.open {
                 max-height: 300px;
+            }
+        }
+    }
+}
+.app-layout.collapsed {
+    .sidebar {
+        width: 70px;
+
+        .menu-label,
+        .expand-icon {
+            display: none;
+        }
+
+        .sidebar-content {
+            padding-left: 6px;
+            padding-right: 6px;
+        }
+        .menu-icon {
+            display: flex;
+        }
+
+        ul {
+            li {
+                justify-content: center;
+
+                .menu-item {
+                    justify-content: center;
+                }
+
+                .menu-label,
+                .expand-icon {
+                    display: none;
+                }
+            }
+
+            .submenu {
+                display: none !important;
+            }
+
+            li:hover .menu-item {
+                position: relative;
+            }
+
+            li:hover .menu-item::after {
+                content: attr(title);
+                position: absolute;
+                left: 60px;
+                background: #334155;
+                color: #fff;
+                padding: 6px 10px;
+                border-radius: 4px;
+                white-space: nowrap;
+                font-size: 13px;
+                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+                z-index: 1000;
             }
         }
     }
