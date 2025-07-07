@@ -1,14 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-header',
-  imports: [],
+  standalone: true,
   templateUrl: './header.component.html',
-  styleUrl: './header.component.scss'
+  styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
+  @Output() toggle = new EventEmitter<void>();
+
   toggleSidebar() {
-    const layout = document.querySelector('.app-layout');
-    layout?.classList.toggle('collapsed');
+    this.toggle.emit();
   }
 }
