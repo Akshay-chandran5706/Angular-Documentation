@@ -3,13 +3,13 @@ export const SIDEBAR_MENU = [
         label: 'Angular Basics',
         key: 'basics',
         subItems: [
-            { label: 'CLI & Setup', route: '/basics/cli' },
-            { label: 'File Structure & Modules', route: '/basics/structure' },
-            { label: 'Components & Decorators', route: '/basics/components' },
-            { label: 'Bindings & Interpolation', route: '/basics/binding' },
-            { label: 'Directives & Pipes', route: '/basics/directives' },
-            { label: 'Event Binding & Template Refs', route: '/basics/events' },
-            { label: 'Template-driven Forms', route: '/basics/forms' }
+            { label: 'CLI & Setup', route: '/angular-basics/cli' },
+            { label: 'File Structure & Modules', route: '/angular-basics/structure' },
+            { label: 'Components & Decorators', route: '/angular-basics/components' },
+            { label: 'Bindings & Interpolation', route: '/angular-basics/binding' },
+            { label: 'Directives & Pipes', route: '/angular-basics/directives' },
+            { label: 'Event Binding & Template Refs', route: '/angular-basics/events' },
+            { label: 'Template-driven Forms', route: '/angular-basics/forms' }
         ]
     },
     {
