@@ -16,6 +16,11 @@ export const routes: Routes = [
                 path: 'cli',
                 loadComponent: () =>
                     import('./menus/angular-basics/cli-setup/cli-setup.component').then(m => m.CliSetupComponent)
+            },
+            {
+                path: 'structure',
+                loadComponent: () =>
+                    import('./menus/angular-basics/cli-setup/cli-setup.component').then(m => m.CliSetupComponent)
             }
         ]
     },

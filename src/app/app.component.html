@@ -1,7 +1,7 @@
 <div class="app-layout" [class.collapsed]="isSidebarCollapsed">
   <app-header (toggle)="toggleSidebar()"></app-header>
 
-  <div class="mobile-overlay" *ngIf="isMobile && showMobileSidebar" (click)="toggleSidebar()"></div>
+  <div class="mobile-overlay" *ngIf="isMobile && showMobileSidebar" (click)="closeSidebar()"></div>
 
   <div class="main">
     <app-sidebar class="sidebar" [class.mobile-visible]="isMobile && showMobileSidebar"

@@ -1,7 +1,7 @@
 .sidebar {
     width: 260px;
-    background-color: #1e293b;
-    color: white;
+    background-color: var(--bg-color);
+    color: var(--white-color);
     position: fixed;
     top: 64px;
     bottom: 0;
@@ -47,8 +47,10 @@
             border-left: 4px solid transparent;
             cursor: pointer;
             transition: all 0.3s ease;
-            color: #cbd5e1;
+            color: var(--menu-color);
             position: relative;
+            overflow: hidden;
+            z-index: 0;
 
             .menu-item {
                 display: flex;
@@ -56,14 +58,15 @@
                 align-items: center;
                 width: 100%;
                 gap: 8px;
+                // color: var(--white-color);
             }
 
             .menu-icon {
                 font-size: 16px;
                 width: 24px;
                 height: 24px;
-                background-color: #334155;
-                color: white;
+                background-color: var(--menu-hover-bgcolor);
+                color: var(--white-color);
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -85,16 +88,34 @@
             &.open .expand-icon {
                 transform: rotate(180deg);
             }
+            
+            &::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                background-color: var(--menu-hover-bgcolor);
+                z-index: -1;
+                transition: left 0.4s ease;
+            }
 
+            &:hover::before {
+                left: 0;
+            }
             &:hover {
-                background-color: #334155;
-                color: white;
+                background-color: var(--menu-hover-bgcolor);
+                color: var(--white-color);
             }
 
             &.active {
-                background-color: #2563eb;
-                color: white;
+                background-color: var(--active-color);
+                color: var(--white-color);
                 border-left: 4px solid #93c5fd;
+                &::before {
+                    background-color: var(--active-color-before);
+                }
             }
         }
 
@@ -102,7 +123,7 @@
             list-style: none;
             padding-left: 26px;
             margin: -4px 0 8px;
-            background-color: #1e293b;
+            background-color: var(--bg-color);
             overflow: hidden;
             max-height: 0;
             transition: max-height 0.3s ease;
@@ -111,15 +132,16 @@
                 padding: 10px 5px;
                 font-size: 13px;
                 font-weight: 400;
-                color: #94a3b8;
+                color: var(--sub-menu-color);
                 transition: color 0.3s;
 
                 &:hover {
-                    color: #fff;
+                    color: var(--white-color);
+                    background-color: var(--sub-menu-hover-bgcolor);
                 }
 
                 &.active {
-                    color: #ffffff;
+                    color: var(--white-color);
                     font-weight: 500;
                 }
             }
@@ -173,8 +195,8 @@
                 content: attr(title);
                 position: absolute;
                 left: 60px;
-                background: #334155;
-                color: #fff;
+                background: var(--sub-menu-hover-bgcolor);
+                color: var(--white-color);
                 padding: 6px 10px;
                 border-radius: 4px;
                 white-space: nowrap;

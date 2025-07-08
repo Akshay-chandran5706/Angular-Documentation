@@ -1,17 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { CodeBlockComponent } from "../../../components/codeblock/codeblock.component";
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-cli-setup',
-  imports: [],
+  imports: [CommonModule, CodeBlockComponent],
   templateUrl: './cli-setup.component.html',
   styleUrl: './cli-setup.component.scss'
 })
 export class CliSetupComponent {
-  copyCode() {
-    const code = document.getElementById('codeContent')?.textContent || '';
-    navigator.clipboard.writeText(code).then(() => {
-      alert('Copied to clipboard!');
-    });
-  }
+
+  step1: string = 'npm install - g @angular/cli';
+  step2: string = 'ng new myNewApp';
+  step3: string = 'ng serve';
 
 }

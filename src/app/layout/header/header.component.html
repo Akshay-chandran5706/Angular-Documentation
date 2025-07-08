@@ -1,6 +1,17 @@
 <header class="header">
-    <div>
-        <i class="fas fa-bars menu-toggle" (click)="toggleSidebar()"></i>
-        Angular Documentation
+    <div class="left-section">
+        <i class="fas fa-bars menu-toggle" (click)="toggleSidebar()" title="Toggle Sidebar"></i>
+        <span class="title">Angular Documentation</span>
+    </div>
+
+    <div class="right-section">
+        <button class="icon-btn theme-toggle" (click)="toggleTheme()" [title]="isDark ? 'Dark Mode' : 'Light Mode'">
+            <i class="fas" [ngClass]="isDark ? 'fa-moon' : 'fa-sun'"></i>
+        </button>
+        <div class="search-wrapper">
+            <i class="fas fa-search search-icon"></i>
+            <input type="text" class="search-input" placeholder="Search..." [(ngModel)]="searchText"
+                (input)="onSearch()" />
+        </div>
     </div>
 </header>

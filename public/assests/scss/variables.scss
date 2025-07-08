@@ -1,0 +1,25 @@
+:root {
+    --bg-color: #1e293b;
+    --text-color: #000;
+    --heading-color: #4879f5;
+    --active-color: #4879f5;
+    --active-color-before: #5f8af5;
+    --border-left-color: #93c5fd;
+    --white-color: #fff;
+    --menu-color: #cbd5e1;
+    --sub-menu-color: #94a3b8;
+    --sub-menu-hover-bgcolor: #334155;
+    --menu-hover-bgcolor: #304361;
+}
+
+body.light-theme {
+    --bg-color: #fff;
+    --text-color: #fff;
+    --heading-color: #4879f5;
+    --border-left-color: #93c5fd;
+    --white-color: #1e293b;
+    --menu-color: #000;
+    --sub-menu-color: #000;
+    --sub-menu-hover-bgcolor: #ccc;
+    --menu-hover-bgcolor: #304361;
+}

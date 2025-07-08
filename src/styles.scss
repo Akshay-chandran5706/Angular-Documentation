@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css");
+@import url(../public/assests/scss/variables.scss);
+@import url(../public/assests/scss/responsive.scss);
 
 * {
     margin: 0;
@@ -11,6 +13,17 @@ body {
     font-family: "Poppins", sans-serif;
     background-color: #f1f5f9;
     color: #1e293b;
+}
+
+.text-color {
+    color: var(--heading-color);
+}
+
+.sub-title {
+    border-left: 4px solid var(--border-left-color);
+    padding: 0.5rem 0.5rem 0.5rem 1rem;
+    margin-bottom: 5px;
+    color: var(--text-color);
 }
 
 body.sidebar-open {
@@ -27,7 +40,6 @@ body.sidebar-open {
     backdrop-filter: blur(2px);
     z-index: 1500;
     transition: opacity 0.3s ease;
-    pointer-events: none;
 }
 
 .app-layout {
@@ -45,9 +57,20 @@ body.sidebar-open {
     .content {
         flex: 1;
         padding: 15px;
-        background-color: #f8fafc;
+        background-color: #ededed;
         overflow-y: auto;
         transition: margin-left 0.3s ease;
+        .inner-container {
+            background: var(--white-color);
+            padding: 1rem;
+            border-radius: 5px;
+            width: 100%;
+            height: 100%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            overflow-y: auto;
+            scrollbar-width: thin;
+            scrollbar-color: #acacac transparent;
+        }
     }
 
     &.collapsed {
@@ -70,58 +93,6 @@ body.sidebar-open {
     }
 }
 
-/* -------------------- Mobile (<768px) Overrides -------------------- */
-@media (max-width: 767px) {
-    .app-layout {
-        .main {
-            margin-left: 0;
-        }
-
-        .sidebar {
-            position: fixed;
-            top: 64px;
-            left: 0;
-            width: 260px;
-            height: calc(100vh - 64px);
-            background-color: #1e293b;
-            transform: translateX(-100%);
-            transition: transform 0.3s ease;
-            z-index: 2000;
-            &.mobile-visible {
-                transform: translateX(0%);
-            }
-            &.mob-width {
-                transform: translateX(0%);
-                top: 0;
-            }
-        }
-
-        &.collapsed .sidebar {
-            transform: translateX(0); // slide in
-        }
-
-        .overlay {
-            display: none;
-            position: fixed;
-            top: 64px;
-            left: 0;
-            width: 100%;
-            height: calc(100vh - 64px);
-            background-color: rgba(0, 0, 0, 0.4);
-            z-index: 1500;
-        }
-
-        &.collapsed .overlay {
-            display: block;
-        }
-
-        .content {
-            padding: 16px;
-        }
-    }
-}
-
-/* -------------------- Animations -------------------- */
 :host ::ng-deep .router-outlet ~ * {
     animation: fadeIn 0.4s ease-in;
 }
@@ -134,5 +105,51 @@ body.sidebar-open {
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+.code-block-container {
+    background-color: #1e1e1e;
+    color: var(--white-color);
+    font-family: "Fira Code", monospace;
+    padding: 16px;
+    margin: 20px;
+    border-radius: 10px;
+    width: fit-content;
+    max-width: 100%;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+
+    .toolbar {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+
+        .lang {
+            font-size: 12px;
+            text-transform: uppercase;
+            color: #9ca3af;
+        }
+
+        button {
+            background: transparent;
+            color: #93c5fd;
+            border: 1px solid #93c5fd;
+            border-radius: 5px;
+            padding: 2px 8px;
+            cursor: pointer;
+            font-size: 12px;
+
+            &:hover {
+                background-color: #2563eb;
+                color: var(--white-color);
+            }
+        }
+    }
+
+    pre {
+        margin: 0;
+        code {
+            white-space: pre-wrap;
+        }
     }
 }
