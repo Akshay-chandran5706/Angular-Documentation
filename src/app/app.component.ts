@@ -48,4 +48,8 @@ export class AppComponent {
       this.isSidebarCollapsed = !this.isSidebarCollapsed;
     }
   }
+
+  closeSidebar() {
+    this.showMobileSidebar = false;
+  }
 }

@@ -1,11 +1,9 @@
-<div class="code-block">
-    <pre>
-        <code id="codeContent">
-            rd /s /q node_modules
-            del package-lock.json
-            npm cache clean --force
-            npm install
-        </code>
-    </pre>
-    <button (click)="copyCode()">Copy</button>
+<div class="inner-container">
+    <h2 class="fs-5 mb-4 text-color">Steps to create application using Angular CLI</h2>
+    <h4 class="fs-6 my-3 sub-title">Step 1: Install Angular CLI</h4>
+    <app-code-block [content]="step1" language="bash"></app-code-block>
+    <h4 class="fs-6 my-3 sub-title">Step 2: Create new Project</h4>
+    <app-code-block [content]="step2" language="bash"></app-code-block>
+    <h4 class="fs-6 my-3 sub-title">Step 3: Run Server and See Your Application</h4>
+    <app-code-block [content]="step3" language="bash"></app-code-block>
 </div>

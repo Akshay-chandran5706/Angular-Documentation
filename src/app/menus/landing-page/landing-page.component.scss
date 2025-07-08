@@ -7,7 +7,7 @@
 }
 
 .content-card {
-    background: #ffffff;
+    background: var(--white-color);
     padding: 4rem 3rem;
     border-radius: 5px;
     text-align: center;
@@ -21,7 +21,7 @@
     width: 100px;
     height: 100px;
     margin: 0 auto 20px;
-    background: white;
+    background: var(--white-color);
     border-radius: 50%;
     padding: 10px;
     box-shadow: 0 0 20px rgba(99, 102, 241, 0.6);
@@ -35,7 +35,7 @@
 
 h1 {
     font-size: 2rem;
-    color: #1e293b;
+    color: var(--bg-color);
     margin-bottom: 10px;
     font-weight: 600;
 }
@@ -48,7 +48,7 @@ h1 {
 
 .get-started {
     background: linear-gradient(to right, #6366f1, #3b82f6);
-    color: #ffffff;
+    color: var(--white-color);
     border: none;
     padding: 12px 28px;
     border-radius: 30px;

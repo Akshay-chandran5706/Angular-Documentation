@@ -1,18 +1,89 @@
 .header {
-    height: 64px;
-    background: linear-gradient(to right, #6366f1, #3b82f6);
-    color: white;
     display: flex;
-    align-items: center;
-    padding: 0 24px;
-    font-size: 20px;
-    font-weight: 600;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     justify-content: space-between;
+    align-items: center;
+    padding: 12px 24px;
+    background: linear-gradient(to right, #6366f1, #3b82f6);
+    color: var(--white-color);
+    font-weight: 500;
+    height: 64px;
 
-    .menu-toggle {
-        cursor: pointer;
-        font-size: 20px;
-        margin-right: 20px;
+    .left-section {
+        display: flex;
+        align-items: center;
+
+        .menu-toggle {
+            margin-right: 16px;
+            cursor: pointer;
+            font-size: 20px;
+            transition: transform 0.3s ease;
+
+            &:hover {
+                transform: scale(1.15);
+            }
+        }
+
+        .title {
+            font-size: 18px;
+            font-weight: 600;
+        }
+    }
+
+    .right-section {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+
+        .search-wrapper {
+            position: relative;
+
+            .search-icon {
+                position: absolute;
+                top: 50%;
+                left: 10px;
+                transform: translateY(-50%);
+                font-size: 14px;
+                color: #9ca3af;
+            }
+
+            .search-input {
+                padding: 6px 12px 6px 30px;
+                border: 1px solid #cbd5e1;
+                border-radius: 6px;
+                font-size: 14px;
+                outline: none;
+                transition: border 0.3s;
+
+                &:focus {
+                    border-color: #ffffff;
+                    background-color: #ffffff;
+                    color: #1e293b;
+                }
+            }
+        }
+
+        .icon-btn {
+            background: none;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: var(--white-color);
+            font-size: 16px;
+            border-radius: 6px;
+            padding: 6px 10px;
+            cursor: pointer;
+            width: 40px;
+            height: 38px;
+            outline: none;
+            transition:
+                background-color 0.2s,
+                transform 0.2s;
+
+            &:hover {
+                background-color: rgba(255, 255, 255, 0.1);
+            }
+
+            &.theme-toggle i {
+                font-size: 18px;
+            }
+        }
     }
 }
