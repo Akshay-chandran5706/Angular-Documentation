@@ -17,8 +17,8 @@
             "main": "src/main.ts",
             "tsConfig": "tsconfig.app.json",
             "assets": [
-              "public/favicon.ico",
-              "public/assets"
+              "src/favicon.ico",
+              "src/assets"
             ],
             "styles": [
               "src/styles.scss",
