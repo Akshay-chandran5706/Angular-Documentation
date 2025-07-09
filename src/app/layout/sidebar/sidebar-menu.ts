@@ -4,7 +4,7 @@ export const SIDEBAR_MENU = [
         key: 'basics',
         subItems: [
             { label: 'CLI & Setup', route: '/angular-basics/cli' },
-            { label: 'File Structure & Modules', route: '/angular-basics/structure' },
+            { label: 'File Structure', route: '/angular-basics/structure' },
             { label: 'Components & Decorators', route: '/angular-basics/components' },
             { label: 'Bindings & Interpolation', route: '/angular-basics/binding' },
             { label: 'Directives & Pipes', route: '/angular-basics/directives' },

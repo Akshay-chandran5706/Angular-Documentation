@@ -1,24 +1,25 @@
-<table class="reusable-table">
-    <thead>
-        <tr>
-            <th *ngFor="let header of headers">{{ header }}</th>
-            <th *ngIf="showActions">Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let row of data">
-            <td *ngFor="let col of columns">
-                <ng-container *ngIf="col === 'command' && commandTemplate; else default">
-                    <ng-container *ngTemplateOutlet="commandTemplate; context: { $implicit: row[col] }"></ng-container>
-                </ng-container>
-                <ng-template #default>
-                    {{ row[col] }}
-                </ng-template>
-            </td>
-            <td *ngIf="showActions">
-                <button (click)="onEdit(row)"><i class="fa fa-edit"></i></button>
-                <button (click)="onDelete(row)"><i class="fa fa-delete"></i></button>
-            </td>
-        </tr>
-    </tbody>
-</table>
+<div class="table-wrapper">
+    <table class="reusable-table">
+        <thead>
+            <tr>
+                <th *ngFor="let header of headers">{{ header }}</th>
+                <th *ngIf="showActions">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let row of data">
+                <td *ngFor="let col of columns">
+                    <ng-container *ngIf="col === 'command' && commandTemplate; else default">
+                        <ng-container
+                            *ngTemplateOutlet="commandTemplate; context: { $implicit: row[col] }"></ng-container>
+                    </ng-container>
+                    <ng-template #default>{{ row[col] }}</ng-template>
+                </td>
+                <td *ngIf="showActions" class="actions">
+                    <button (click)="onEdit(row)" aria-label="Edit"><i class="fa fa-edit"></i></button>
+                    <button (click)="onDelete(row)" aria-label="Delete"><i class="fa fa-trash"></i></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
