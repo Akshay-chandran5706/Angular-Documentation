@@ -6,10 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "build:ssr": "ng build --configuration production && ng run angular-documentation:server:production",
-    "serve:ssr": "node dist/angular-documentation/server/main.js",
-    "dev:ssr": "ng run angular-documentation:serve-ssr",
-    "prerender": "ng run angular-documentation:prerender",
-    "test": "ng test"
+    "serve:ssr": "node dist/angular-documentation/server/main.js"
   },
   "private": true,
   "dependencies": {
