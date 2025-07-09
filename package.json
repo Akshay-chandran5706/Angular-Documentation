@@ -5,9 +5,9 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build:ssr": "ng build && ng run angular-documentation:server",
+    "build:ssr": "ng build && ng run documentation:server",
     "serve": "ng serve",
-    "serve:ssr": "node dist/angular-documentation/server/main.js",
+    "serve:ssr": "node dist/documentation/server/main.js",
     "test": "ng test"
   },
   "private": true,
