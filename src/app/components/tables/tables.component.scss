@@ -1,0 +1,28 @@
+.reusable-table {
+    width: 100%;
+    border-collapse: collapse;
+
+    th,
+    td {
+        border: 1px solid #d1d5db;
+        padding: 10px 14px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #f3f4f6;
+        font-weight: 600;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f9fafb;
+    }
+
+    button {
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        margin-right: 6px;
+        font-size: 14px;
+    }
+}
