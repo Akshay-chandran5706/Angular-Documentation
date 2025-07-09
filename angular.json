@@ -35,19 +35,32 @@
                 }
               ],
               "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
             }
-          }
+          },
+          "defaultConfiguration": "production"
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angular-documentation:build"
+            "buildTarget": "angular-documentation:build:development"
           },
           "configurations": {
             "production": {
-              "browserTarget": "angular-documentation:build:production"
+              "buildTarget": "angular-documentation:build:production"
+            },
+            "development": {
+              "buildTarget": "angular-documentation:build:development"
             }
-          }
+          },
+          "defaultConfiguration": "development"
         },
         "server": {
           "builder": "@angular-devkit/build-angular:server",
@@ -58,15 +71,24 @@
           },
           "configurations": {
             "production": {
-              "outputHashing": "media",
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
                   "with": "src/environments/environment.prod.ts"
                 }
-              ]
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
             }
-          }
+          },
+          "defaultConfiguration": "production"
         },
         "prerender": {
           "builder": "@angular-devkit/build-angular:prerender",
@@ -81,8 +103,7 @@
       }
     }
   },
-  "defaultProject": "angular-documentation",
   "cli": {
-    "analytics": "5a745d7c-4ca6-4973-ba75-22cd80ac0815"
+    "analytics": false
   }
 }
