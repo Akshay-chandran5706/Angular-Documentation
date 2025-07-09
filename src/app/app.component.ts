@@ -1,9 +1,10 @@
-import { Component, HostListener, Inject, PLATFORM_ID } from '@angular/core';
-import { Router, RouterOutlet } from '@angular/router';
+import { Component, ElementRef, HostListener, Inject, PLATFORM_ID } from '@angular/core';
+import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './layout/header/header.component';
 import { SidebarComponent } from './layout/sidebar/sidebar.component';
 import { CommonModule } from '@angular/common';
 import { isPlatformBrowser } from '@angular/common';
+import { PageIndexService } from './services/page-index.service';
 
 @Component({
   selector: 'app-root',
@@ -20,8 +21,33 @@ export class AppComponent {
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
+    private router: Router,
+    private elRef: ElementRef,
+    private pageIndex: PageIndexService
 
-  ) { }
+  ) {
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        setTimeout(() => {
+          const contentNodes = this.elRef.nativeElement.querySelectorAll(
+            '.content, .page-wrapper'
+          );
+
+          let combinedContent = '';
+
+          contentNodes.forEach((node: Element) => {
+            const cleanNode = node.cloneNode(true) as HTMLElement;
+            cleanNode.querySelectorAll('button, i, img, .lang, .actions')
+              .forEach(el => el.remove());
+            combinedContent += ' ' + cleanNode.innerText;
+          });
+
+          this.pageIndex.setContent(this.router.url, combinedContent.trim());
+        }, 100);
+      }
+    });
+
+  }
 
   ngOnInit() {
     if (isPlatformBrowser(this.platformId)) {

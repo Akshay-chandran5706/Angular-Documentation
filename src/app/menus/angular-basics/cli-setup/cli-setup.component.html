@@ -6,4 +6,10 @@
     <app-code-block [content]="step2" language="bash"></app-code-block>
     <h4 class="fs-6 my-3 sub-title">Step 3: Run Server and See Your Application</h4>
     <app-code-block [content]="step3" language="bash"></app-code-block>
+    <h2 class="fs-5 mt-5 mb-4 text-color">General CLI commands</h2>
+    <app-table [headers]="['Use', 'Command']" [columns]="['use', 'command']" [data]="cliData">
+        <ng-template #command let-value>
+            <app-code-block [content]="value" language="bash"></app-code-block>
+        </ng-template>
+    </app-table>
 </div>
