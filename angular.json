@@ -15,7 +15,6 @@
             "outputPath": "dist/angular-documentation/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
@@ -81,5 +80,8 @@
       }
     }
   },
-  "defaultProject": "angular-documentation"
+  "defaultProject": "angular-documentation",
+  "cli": {
+    "analytics": "5a745d7c-4ca6-4973-ba75-22cd80ac0815"
+  }
 }
