@@ -1,6 +1,6 @@
 import { Component, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
-import { PageIndexService } from '../../services/page-index.service';
+import { PageIndexService } from '../../core/services/page-index.service';
 
 @Component({
   selector: 'app-landing-page',

@@ -4,7 +4,7 @@ import { HeaderComponent } from './layout/header/header.component';
 import { SidebarComponent } from './layout/sidebar/sidebar.component';
 import { CommonModule } from '@angular/common';
 import { isPlatformBrowser } from '@angular/common';
-import { PageIndexService } from './services/page-index.service';
+import { PageIndexService } from './core/services/page-index.service';
 
 @Component({
   selector: 'app-root',
