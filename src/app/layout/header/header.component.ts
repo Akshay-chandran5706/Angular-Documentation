@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, ElementRef, EventEmitter, HostListener, inject, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Route, Router, ROUTES } from '@angular/router';
-import { PageIndexService } from '../../services/page-index.service';
+import { PageIndexService } from '../../core/services/page-index.service';
 
 @Component({
   selector: 'app-header',

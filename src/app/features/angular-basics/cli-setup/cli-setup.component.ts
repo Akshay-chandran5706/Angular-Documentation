@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { CodeBlockComponent } from "../../../components/codeblock/codeblock.component";
 import { CommonModule } from '@angular/common';
-import { TableComponent } from "../../../components/tables/tables.component";
+import { CodeBlockComponent } from '../../../shared/components/codeblock/codeblock.component';
+import { TableComponent } from '../../../shared/components/tables/tables.component';
 
 @Component({
   selector: 'app-cli-setup',
